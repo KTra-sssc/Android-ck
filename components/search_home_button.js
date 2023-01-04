@@ -14,14 +14,14 @@ function search_home_button (props) {
 
         }}
     >
-        {/* <Icon 
-            name="far fa-search"
+        <Icon 
+            name="search"
             style={{
-                color: '#4d4d4d',
+                color: 'red',
                 position: 'absolute',
 
             }}
-        /> */}
+        />
         <Text style={{
             color: '#4d4d4d',
             marginRight: 4,
