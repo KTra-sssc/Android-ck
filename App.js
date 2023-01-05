@@ -15,11 +15,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: 'black',
-          inactiveTintColor: '#575757',
-        }}
         screenOptions={{
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "#575757",
+          tabBarStyle: [
+            {
+              display: "flex"
+            },
+            null
+          ],
             title: '',
             headerShown: false
         }}>
