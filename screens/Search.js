@@ -10,10 +10,8 @@ import {
     Dimensions,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Navigator_home from '../utilities/Navigator_home';
-
-const Home = () => {
-    
+import Navigator_search from '../utilities/Navigator_search'
+const Search = () =>{
     return (
         <View style={{
             flex: 1,
@@ -26,19 +24,15 @@ const Home = () => {
                     <FontAwesome name="search" size={30} color='#575757'/>
                     <Text style={styles.inputText}>Bạn đang tìm sản phẩm gì ?</Text>
                 </View>
-
-                <View style={styles.cartContainer}>
-                    <FontAwesome name="shopping-cart" size={24} color='#575757'/>
-                </View>
             </View>
             {/* */}
-            
+
             <View style={styles.bodyContainer}>
-                <Navigator_home/>
+                <Navigator_search/>
             </View>
         </View>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     headerContainer: {
@@ -52,6 +46,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flex: 1,
         marginLeft: 10,
+        marginRight: 10,
         alignItems: 'center',
         paddingVertical: 8,
         paddingHorizontal: 12,
@@ -63,17 +58,13 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         fontWeight: '500',
     },
-    cartContainer: {
-        paddingHorizontal: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
 
     //body
     bodyContainer: {
         backgroundColor: '#dddddd',
         flex: 1,
+        
     },
 });
 
-export default Home
+export default Search;
