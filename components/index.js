@@ -1,6 +1,5 @@
-import search_home_button from './search_home_button'
-import Taskbar_button from './Taskbar_button'
+import Top from "./Top"
+
 export {
-    search_home_button,
-    Taskbar_button,
+    Top,
 }
