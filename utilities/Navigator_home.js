@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-//import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import { 
     Text, 
     StyleSheet, 
@@ -12,6 +12,9 @@ import {
     SafeAreaView } from 'react-native';
 import {Top, Women} from '../components/index';
 import { Home_tabbar } from '../constants/index';
+import { Component } from 'react/cjs/react.production.min';
+
+const Tab = createMaterialTopTabNavigator()
 
 const Navigator_home = () => {
     const [status, setstatus] = useState('TOP')
@@ -19,76 +22,79 @@ const Navigator_home = () => {
         setstatus(status)
     }
     return (
-    // <Tab.Navigator 
-    //     screenOptions={{
-    //         headerShown: false,
-    //         tabBarIndicatorStyle: {
-    //             backgroundColor: 'black'
-    //         },
-    //         tabBarActiveL: 'black',
-    //         tabBarInactiveTintColor: '#575757',
-    //         tabBarAllowFontScaling: true,
-    //         tabBarLabelStyle: {
-    //             fontWeight: 'bold',
-    //             fontSize: 14,
-    //         },
+        <Tab.Navigator 
+            screenOptions={{
+                swipeEnabled: false,
+                headerShown: false,
+                tabBarIndicatorStyle: {
+                    backgroundColor: 'black'
+                },
+                tabBarActiveL: 'black',
+                tabBarInactiveTintColor: '#575757',
+                tabBarAllowFontScaling: true,
+                tabBarLabelStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 14,
+                },
+                
+            }}
             
-    //     }}
-        
-    // >
-    //     <Tab.Screen 
-    //         name="TOP" 
-    //         component={Top} 
-    //         options={{
-    //             tabBarLabel:"TOP"
-    //         }}
-    //     />
-    //     <Tab.Screen 
-    //         name="WOMEN" 
-    //         component={Women} 
-    //         options={{
-    //             tabBarLabel: "WOMEN"
-    //         }}
-    //     />
-    //     <Tab.Screen 
-    //         name="MEN" 
-    //         component={Women} 
-    //         options={{
-    //             tabBarLabel: "MEN"
-    //         }}
-    //     />
-    //     <Tab.Screen 
-    //         name="KIDS" 
-    //         component={Women} 
-    //         options={{
-    //             tabBarLabel: "KIDS"
-    //         }}
-    //     />
-    //     <Tab.Screen 
-    //         name="BABY" 
-    //         component={Women} 
-    //         options={{
-    //             tabBarLabel: "BABY"
-    //         }}
-    //     />
-    // </Tab.Navigator>
-        <SafeAreaView style={styles.container}>
-            <View style={styles.listTab}>
-                {Home_tabbar.listTab.map(e => 
-                    <TouchableOpacity 
-                        key={e}
-                        style={[styles.btnTap, e === status && styles.btnTapActive]}
-                        onPress={() => {
-                            setStatusFilter(e)
+        >
+            <Tab.Screen 
+                name="TOP" 
+                component={Top} 
+                options={{
+                    tabBarLabel:"TOP"
+                }}
+            />
+            <Tab.Screen 
+                name="WOMEN" 
+                component={Women} 
+                options={{
+                    tabBarLabel: "WOMEN"
+                }}
+            />
+            <Tab.Screen 
+                name="MEN" 
+                component={Women} 
+                options={{
+                    tabBarLabel: "MEN"
+                }}
+            />
+            <Tab.Screen 
+                name="KIDS" 
+                component={Women} 
+                options={{
+                    tabBarLabel: "KIDS"
+                }}
+            />
+            <Tab.Screen 
+                name="BABY" 
+                component={Women} 
+                options={{
+                    tabBarLabel: "BABY"
+                }}
+            />
+        </Tab.Navigator>
+        // <SafeAreaView style={styles.container}>
+        //     <View style={styles.listTab}>
+        //         {Home_tabbar.listTab.map(e => 
+        //             <TouchableOpacity 
+        //                 key={e}
+        //                 style={[styles.btnTap, e === status && styles.btnTapActive]}
+        //                 onPress={() => {
+        //                     setStatusFilter(e)
+        //                 }}
+                        
+        //             >
+        //                 <Text style={[styles.title, e == status && styles.titleTabActive]}>{e}</Text>
 
-                        }}
-                    >
-                        <Text style={[styles.title, e == status && styles.titleTabActive]}>{e}</Text>
+        //             </TouchableOpacity>
 
-                    </TouchableOpacity>
-                )}
-            </View>
-        </SafeAreaView>
+                    
+        //         )}
+        //     </View>
+        // </SafeAreaView>
     );
 };
 
