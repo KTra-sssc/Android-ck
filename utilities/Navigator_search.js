@@ -9,48 +9,46 @@ const Tab = createMaterialTopTabNavigator();
 const Navigator_search = () => {
   return (
     <Tab.Navigator 
-        tabBarOptions={{
-            activeTintColor: 'black',
-            inactiveTintColor: '#575757',
-        }}
         screenOptions={{
-            headerShown: false
+            headerShown: false,
+            tabBarIndicatorStyle: {
+                backgroundColor: 'black'
+            },
+            tabBarActiveL: 'black',
+            tabBarInactiveTintColor: '#575757',
+            tabBarAllowFontScaling: true,
+            tabBarLabelStyle: {
+                fontWeight: 'bold',
+                fontSize: 14,
+            }
         }}
     >
         <Tab.Screen 
             name="NỮ" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color= {color}>NỮ</Text>
-            ),
+            tabBarLabel: "NỮ"
             }}
         />
         <Tab.Screen 
             name="NAM" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>NAM</Text>
-            ),
+            tabBarLabel: "NAM"
             }}
         />
         <Tab.Screen 
             name="TRẺ EM" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>TRẺ EM</Text>
-            ),
+            tabBarLabel: "TRẺ EM"
             }}
         />
         <Tab.Screen 
             name="TRẺ SƠ SINH" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>TRẺ SƠ SINH</Text>
-            ),
+            tabBarLabel: "TRẺ SƠ SINH" 
             }}
         />
     </Tab.Navigator>

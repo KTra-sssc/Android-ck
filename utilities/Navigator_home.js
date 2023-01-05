@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import {Top} from '../components/index';
 
 const Tab = createMaterialTopTabNavigator();
@@ -9,57 +9,53 @@ const Tab = createMaterialTopTabNavigator();
 const Navigator_home = () => {
   return (
     <Tab.Navigator 
-        tabBarOptions={{
-            activeTintColor: 'black',
-            inactiveTintColor: '#575757',
-        }}
         screenOptions={{
-            headerShown: false
+            headerShown: false,
+            tabBarIndicatorStyle: {
+                backgroundColor: 'black'
+            },
+            tabBarActiveL: 'black',
+            tabBarInactiveTintColor: '#575757',
+            tabBarAllowFontScaling: true,
+            tabBarLabelStyle: {
+                fontWeight: 'bold',
+                fontSize: 14,
+            }
         }}
     >
         <Tab.Screen 
             name="TOP" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>TOP</Text>
-            ),
+                tabBarLabel:"TOP"
             }}
         />
         <Tab.Screen 
             name="WOMEN" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>WOMEN</Text>
-            ),
+                tabBarLabel: "WOMEN"
             }}
         />
         <Tab.Screen 
             name="MEN" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>MEN</Text>
-            ),
+                tabBarLabel: "MEN"
             }}
         />
         <Tab.Screen 
             name="KIDS" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>KIDS</Text>
-            ),
+                tabBarLabel: "KIDS"
             }}
         />
         <Tab.Screen 
             name="BABY" 
             component={Top} 
             options={{
-            tabBarLabel:({color}) => (
-            <Text color = {color}>BABY</Text>
-            ),
+                tabBarLabel: "BABY"
             }}
         />
     </Tab.Navigator>
