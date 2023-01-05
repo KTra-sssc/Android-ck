@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { 
     Text,
     StyleSheet, 
@@ -12,19 +12,16 @@ import {
     Image, 
     SafeAreaView
 } from 'react-native';
-import {Top} from '../components/index';
+import {Women} from '../components/index';
 import {Search_tabbar} from '../constants/index'
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator()
 
 const Navigator_search = () => {
-    const [status, setstatus] = useState('TOP')
-    const setStatusFilter = (status) => {
-        setstatus(status)
-    }
     return (
         <Tab.Navigator 
             screenOptions={{
+                swipeEnabled: false,
                 headerShown: false,
                 tabBarIndicatorStyle: {
                     backgroundColor: 'black'
@@ -40,28 +37,28 @@ const Navigator_search = () => {
         >
             <Tab.Screen 
                 name="NỮ" 
-                component={Top} 
+                component={Women} 
                 options={{
                 tabBarLabel: "NỮ"
                 }}
             />
             <Tab.Screen 
                 name="NAM" 
-                component={Top} 
+                component={Women} 
                 options={{
                 tabBarLabel: "NAM"
                 }}
             />
             <Tab.Screen 
                 name="TRẺ EM" 
-                component={Top} 
+                component={Women} 
                 options={{
                 tabBarLabel: "TRẺ EM"
                 }}
             />
             <Tab.Screen 
                 name="TRẺ SƠ SINH" 
-                component={Top} 
+                component={Women} 
                 options={{
                 tabBarLabel: "TRẺ SƠ SINH" 
                 }}

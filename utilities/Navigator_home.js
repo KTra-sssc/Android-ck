@@ -17,10 +17,7 @@ import { Component } from 'react/cjs/react.production.min';
 const Tab = createMaterialTopTabNavigator()
 
 const Navigator_home = () => {
-    const [status, setstatus] = useState('TOP')
-    const setStatusFilter = (status) => {
-        setstatus(status)
-    }
+
     return (
         <Tab.Navigator 
             screenOptions={{

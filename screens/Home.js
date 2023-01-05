@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 
     //body
     bodyContainer: {
-        backgroundColor: '#dddddd',
+        backgroundColor: 'white',
         flex: 1,
     },
 });

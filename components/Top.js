@@ -32,25 +32,24 @@ const Top = () =>{
         <View style={{
             flex: 1,
         }}>
-            <View style={{
-                flex: 1,
-            }}>
-                <ScrollView
-                    onScroll={({nativeEvent}) => onchange(nativeEvent)}
-                    style={styles.wrap}
-                >
-                    {images.map((e, index) => 
-                        <Image
-                            key={e}
-                            resizeMode= "contain"
-                            style={styles.wrap}
-                            source={e}
-                        />
-                    )}
-                </ScrollView>
+            <ScrollView
+                onScroll={({nativeEvent}) => onchange(nativeEvent)}
+                style={styles.wrap}
+                showsHorizontalScrollIndicator= {false}
+                horizontal
+                pagingEnabled
+            >
+                {images.map((e, index) => 
+                    <Image
+                        key={e}
+                        resizeMode= "contain"
+                        style={styles.wrap}
+                        source={e}
+                    />
+                )}
+            </ScrollView>
 
-            </View>
-            </View>
+        </View>
     )
 }
 
@@ -62,7 +61,8 @@ const styles = StyleSheet.create({
     wrap: {
         flex: 1,
         width: WIDTH,
-        height: HEIGHT
+        height: HEIGHT,
+        alignSelf: 'center'
     }
 })
 
