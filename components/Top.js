@@ -9,11 +9,9 @@ import {
     StatusBar,
     Dimensions,
     Image,
-    Math
-
 } from 'react-native';
 import { SafeAreaView, withSafeAreaInsets } from 'react-native-safe-area-context';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {TopSlider_image} from '../constants/index'
 
 //const WIDTH = Dimensions.get('window').width;
@@ -23,9 +21,21 @@ const WIDTH = Dimensions.get('screen').width;
 
 const Top = () =>{
     const [imgActive, setimgActive] = useState(0)
+    const [imgVertical, setimgVertical] = useState(0)
     const onchange = (nativeEvent) => {
         if(nativeEvent) {
-            //const slide = Math.ceil(nativeEvent.contentOffset.x / )
+            const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width)
+            if(slide != imgActive) {
+                setimgActive(slide)
+            }
+        }
+    }
+    const onchangeVertical = (nativeEvent) => {
+        if(nativeEvent) {
+            const slide = Math.ceil(nativeEvent.contentOffset.y / nativeEvent.layoutMeasurement.height)
+            if(slide != imgActive) {
+                setimgActive(slide)
+            }
         }
     }
     return (
@@ -48,7 +58,15 @@ const Top = () =>{
                     />
                 )}
             </ScrollView>
-
+            <View style={styles.wrapdot}>
+                {images.map((e, index) =>
+                    <FontAwesomeIcon 
+                        name='circle'
+                        key={e}
+                        style={[styles.dotStyle, index == imgActive && styles.dotStyleActive]}
+                    />
+                )}
+            </View>
         </View>
     )
 }
@@ -63,6 +81,26 @@ const styles = StyleSheet.create({
         width: WIDTH,
         height: HEIGHT,
         alignSelf: 'center'
+    },
+    wrapdot: {
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        paddingBottom: 5,
+        alignItems: 'center',
+        
+             
+    },
+    dotStyle: {
+        paddingHorizontal: 3,
+        fontSize: 5,
+        color: 'black'
+    },
+    dotStyleActive: {
+        paddingHorizontal: 3,
+        fontSize: 10,
+        color: 'white',      
     }
 })
 
